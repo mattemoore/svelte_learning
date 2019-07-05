@@ -16,12 +16,14 @@
 </script>
 
 <Header {apiUrl} on:gotBeers={gotBeers} />
-{#if beers}
+{#if beers == undefined}
+	<p>Enter a search term in the header and click the Search button...</p>
+{:else if beers.length <= 0}
+	<p>Nothing found for that search term.  Try again with a different search term.</p>
+{:else}
 	{#each beers as beer}
 		<Beer beer={beer} />
 	{/each}
-{:else}
-	<p>Click Search in the header...</p>
 {/if}
 {#if numCalls}
 	<Footer {numCalls} {numCallsLeft} />
