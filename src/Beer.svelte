@@ -4,7 +4,6 @@
     function selectBeer(beerId) {
         alert(`Selected beer ${beerId}!`)
     }
-
 </script>
 
 <div id='beer' on:click={() => selectBeer(beer.id)}>
@@ -18,13 +17,12 @@
         width: 200px; height: 250px;
         padding: 20px 10px; margin: 10px;
         color: #1f2d3d; text-align: center;
-        background-color: rgba(149, 191, 116, 1); 
+        background-color: #95BF74; 
     }
     #beer:hover {
-        background-color: rgba(101, 155, 94, 1);
+        background-color: #659B5E;
         cursor: grab;
     }
-
     img {
         width: 85px; height: 200px;
         padding: 10px 10px 20px 20px;

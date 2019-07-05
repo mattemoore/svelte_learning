@@ -17,7 +17,7 @@
 </script>
 
 <div id='banner'>
-    Search beers with Svelte and Punk API
+    <p>Search beers with Svelte and Punk API</p>
     <input bind:value={searchTerm} />
     <button on:click={search}>Search</button>
 </div>
@@ -25,10 +25,12 @@
 <style>
     #banner { 
         overflow: hidden;
-        padding: 20px 10px;
+        padding: 10px 20px;
         color: #1f2d3d; 
-        background-color: rgba(153, 221, 200, 1); 
-        opacity: .7;
+        background-color:#99DDC8;
+    }
+    p {
+        display: inline-block;
     }
     button:hover {
         cursor: grab;

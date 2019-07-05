@@ -4,16 +4,15 @@
 </script>
 <div id="footer">
     {#if numCalls}
-        Number of API calls per hour: {numCalls} <br/>
-        Number of API calls left this hour: {numCallsLeft}
+        <p>Number of API calls per hour: {numCalls}</p>
+        <p>Number of API calls left this hour: {numCallsLeft}</p>
     {/if}
 </div>
 <style>
     #footer { 
         overflow: hidden; clear: both;
-        padding: 20px 10px;
-        color: #fff; 
-        background-color: rgba(40, 63, 59, 1);
-        opacity: .7;
+        padding: 5px 20px ;
+        color: gainsboro; 
+        background-color: #283F3B;
     }
 </style>

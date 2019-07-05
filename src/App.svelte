@@ -13,12 +13,7 @@
 		numCalls = event.detail.headers.get('x-ratelimit-limit')
 		numCallsLeft = event.detail.headers.get('x-ratelimit-remaining')
 	}
-
 </script>
-
-<style>
-
-</style>
 
 <Header {apiUrl} on:gotBeers={gotBeers} />
 {#if beers}
@@ -28,4 +23,6 @@
 {:else}
 	<p>Click Search in the header...</p>
 {/if}
-<Footer {numCalls} {numCallsLeft} />
+{#if numCalls}
+	<Footer {numCalls} {numCallsLeft} />
+{/if}

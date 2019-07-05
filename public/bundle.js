@@ -311,21 +311,25 @@ var app = (function () {
     const file = "src/Header.svelte";
 
     function create_fragment(ctx) {
-    	var div, t0, input, t1, button, dispose;
+    	var div, p, t1, input, t2, button, dispose;
 
     	return {
     		c: function create() {
     			div = element("div");
-    			t0 = text("Search beers with Svelte and Punk API\n    ");
-    			input = element("input");
+    			p = element("p");
+    			p.textContent = "Search beers with Svelte and Punk API";
     			t1 = space();
+    			input = element("input");
+    			t2 = space();
     			button = element("button");
     			button.textContent = "Search";
-    			add_location(input, file, 20, 4, 572);
-    			attr(button, "class", "svelte-15dtnyc");
-    			add_location(button, file, 21, 4, 610);
+    			attr(p, "class", "svelte-l2v3a5");
+    			add_location(p, file, 19, 4, 530);
+    			add_location(input, file, 20, 4, 579);
+    			attr(button, "class", "svelte-l2v3a5");
+    			add_location(button, file, 21, 4, 617);
     			attr(div, "id", "banner");
-    			attr(div, "class", "svelte-15dtnyc");
+    			attr(div, "class", "svelte-l2v3a5");
     			add_location(div, file, 18, 0, 508);
 
     			dispose = [
@@ -340,12 +344,13 @@ var app = (function () {
 
     		m: function mount(target, anchor) {
     			insert(target, div, anchor);
-    			append(div, t0);
+    			append(div, p);
+    			append(div, t1);
     			append(div, input);
 
     			input.value = ctx.searchTerm;
 
-    			append(div, t1);
+    			append(div, t2);
     			append(div, button);
     		},
 
@@ -431,26 +436,29 @@ var app = (function () {
 
     // (6:4) {#if numCalls}
     function create_if_block(ctx) {
-    	var t0, t1, t2, br, t3, t4;
+    	var p0, t0, t1, t2, p1, t3, t4;
 
     	return {
     		c: function create() {
+    			p0 = element("p");
     			t0 = text("Number of API calls per hour: ");
     			t1 = text(ctx.numCalls);
     			t2 = space();
-    			br = element("br");
-    			t3 = text("\n        Number of API calls left this hour: ");
+    			p1 = element("p");
+    			t3 = text("Number of API calls left this hour: ");
     			t4 = text(ctx.numCallsLeft);
-    			add_location(br, file$1, 6, 49, 159);
+    			add_location(p0, file$1, 6, 8, 118);
+    			add_location(p1, file$1, 7, 8, 174);
     		},
 
     		m: function mount(target, anchor) {
-    			insert(target, t0, anchor);
-    			insert(target, t1, anchor);
+    			insert(target, p0, anchor);
+    			append(p0, t0);
+    			append(p0, t1);
     			insert(target, t2, anchor);
-    			insert(target, br, anchor);
-    			insert(target, t3, anchor);
-    			insert(target, t4, anchor);
+    			insert(target, p1, anchor);
+    			append(p1, t3);
+    			append(p1, t4);
     		},
 
     		p: function update(changed, ctx) {
@@ -465,12 +473,9 @@ var app = (function () {
 
     		d: function destroy(detaching) {
     			if (detaching) {
-    				detach(t0);
-    				detach(t1);
+    				detach(p0);
     				detach(t2);
-    				detach(br);
-    				detach(t3);
-    				detach(t4);
+    				detach(p1);
     			}
     		}
     	};
@@ -486,7 +491,7 @@ var app = (function () {
     			div = element("div");
     			if (if_block) if_block.c();
     			attr(div, "id", "footer");
-    			attr(div, "class", "svelte-7w52xu");
+    			attr(div, "class", "svelte-axqhdy");
     			add_location(div, file$1, 4, 0, 73);
     		},
 
@@ -589,14 +594,14 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			img = element("img");
-    			add_location(p, file$2, 10, 4, 182);
+    			add_location(p, file$2, 9, 4, 181);
     			attr(img, "src", img_src_value = ctx.beer.image_url);
     			attr(img, "alt", img_alt_value = "A picture of the beer called " + ctx.beer.name + ".");
-    			attr(img, "class", "svelte-109mwck");
-    			add_location(img, file$2, 11, 4, 205);
+    			attr(img, "class", "svelte-1gf0cl4");
+    			add_location(img, file$2, 10, 4, 204);
     			attr(div, "id", "beer");
-    			attr(div, "class", "svelte-109mwck");
-    			add_location(div, file$2, 9, 0, 125);
+    			attr(div, "class", "svelte-1gf0cl4");
+    			add_location(div, file$2, 8, 0, 124);
     			dispose = listen(div, "click", ctx.click_handler);
     		},
 
@@ -693,7 +698,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (28:0) {:else}
+    // (23:0) {:else}
     function create_else_block(ctx) {
     	var p;
 
@@ -701,7 +706,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Click Search in the header...";
-    			add_location(p, file$3, 28, 1, 600);
+    			add_location(p, file$3, 23, 1, 580);
     		},
 
     		m: function mount(target, anchor) {
@@ -720,8 +725,8 @@ var app = (function () {
     	};
     }
 
-    // (24:0) {#if beers}
-    function create_if_block$1(ctx) {
+    // (19:0) {#if beers}
+    function create_if_block_1(ctx) {
     	var each_1_anchor, current;
 
     	var each_value = ctx.beers;
@@ -802,7 +807,7 @@ var app = (function () {
     	};
     }
 
-    // (25:1) {#each beers as beer}
+    // (20:1) {#each beers as beer}
     function create_each_block(ctx) {
     	var current;
 
@@ -845,29 +850,9 @@ var app = (function () {
     	};
     }
 
-    function create_fragment$3(ctx) {
-    	var t0, current_block_type_index, if_block, t1, current;
-
-    	var header = new Header({
-    		props: { apiUrl: apiUrl },
-    		$$inline: true
-    	});
-    	header.$on("gotBeers", ctx.gotBeers);
-
-    	var if_block_creators = [
-    		create_if_block$1,
-    		create_else_block
-    	];
-
-    	var if_blocks = [];
-
-    	function select_block_type(ctx) {
-    		if (ctx.beers) return 0;
-    		return 1;
-    	}
-
-    	current_block_type_index = select_block_type(ctx);
-    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    // (26:0) {#if numCalls}
+    function create_if_block$1(ctx) {
+    	var current;
 
     	var footer = new Footer({
     		props: {
@@ -879,11 +864,73 @@ var app = (function () {
 
     	return {
     		c: function create() {
+    			footer.$$.fragment.c();
+    		},
+
+    		m: function mount(target, anchor) {
+    			mount_component(footer, target, anchor);
+    			current = true;
+    		},
+
+    		p: function update(changed, ctx) {
+    			var footer_changes = {};
+    			if (changed.numCalls) footer_changes.numCalls = ctx.numCalls;
+    			if (changed.numCallsLeft) footer_changes.numCallsLeft = ctx.numCallsLeft;
+    			footer.$set(footer_changes);
+    		},
+
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(footer.$$.fragment, local);
+
+    			current = true;
+    		},
+
+    		o: function outro(local) {
+    			transition_out(footer.$$.fragment, local);
+    			current = false;
+    		},
+
+    		d: function destroy(detaching) {
+    			destroy_component(footer, detaching);
+    		}
+    	};
+    }
+
+    function create_fragment$3(ctx) {
+    	var t0, current_block_type_index, if_block0, t1, if_block1_anchor, current;
+
+    	var header = new Header({
+    		props: { apiUrl: apiUrl },
+    		$$inline: true
+    	});
+    	header.$on("gotBeers", ctx.gotBeers);
+
+    	var if_block_creators = [
+    		create_if_block_1,
+    		create_else_block
+    	];
+
+    	var if_blocks = [];
+
+    	function select_block_type(ctx) {
+    		if (ctx.beers) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	var if_block1 = (ctx.numCalls) && create_if_block$1(ctx);
+
+    	return {
+    		c: function create() {
     			header.$$.fragment.c();
     			t0 = space();
-    			if_block.c();
+    			if_block0.c();
     			t1 = space();
-    			footer.$$.fragment.c();
+    			if (if_block1) if_block1.c();
+    			if_block1_anchor = empty();
     		},
 
     		l: function claim(nodes) {
@@ -895,7 +942,8 @@ var app = (function () {
     			insert(target, t0, anchor);
     			if_blocks[current_block_type_index].m(target, anchor);
     			insert(target, t1, anchor);
-    			mount_component(footer, target, anchor);
+    			if (if_block1) if_block1.m(target, anchor);
+    			insert(target, if_block1_anchor, anchor);
     			current = true;
     		},
 
@@ -915,36 +963,47 @@ var app = (function () {
     				});
     				check_outros();
 
-    				if_block = if_blocks[current_block_type_index];
-    				if (!if_block) {
-    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
-    					if_block.c();
+    				if_block0 = if_blocks[current_block_type_index];
+    				if (!if_block0) {
+    					if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block0.c();
     				}
-    				transition_in(if_block, 1);
-    				if_block.m(t1.parentNode, t1);
+    				transition_in(if_block0, 1);
+    				if_block0.m(t1.parentNode, t1);
     			}
 
-    			var footer_changes = {};
-    			if (changed.numCalls) footer_changes.numCalls = ctx.numCalls;
-    			if (changed.numCallsLeft) footer_changes.numCallsLeft = ctx.numCallsLeft;
-    			footer.$set(footer_changes);
+    			if (ctx.numCalls) {
+    				if (if_block1) {
+    					if_block1.p(changed, ctx);
+    					transition_in(if_block1, 1);
+    				} else {
+    					if_block1 = create_if_block$1(ctx);
+    					if_block1.c();
+    					transition_in(if_block1, 1);
+    					if_block1.m(if_block1_anchor.parentNode, if_block1_anchor);
+    				}
+    			} else if (if_block1) {
+    				group_outros();
+    				transition_out(if_block1, 1, () => {
+    					if_block1 = null;
+    				});
+    				check_outros();
+    			}
     		},
 
     		i: function intro(local) {
     			if (current) return;
     			transition_in(header.$$.fragment, local);
 
-    			transition_in(if_block);
-
-    			transition_in(footer.$$.fragment, local);
-
+    			transition_in(if_block0);
+    			transition_in(if_block1);
     			current = true;
     		},
 
     		o: function outro(local) {
     			transition_out(header.$$.fragment, local);
-    			transition_out(if_block);
-    			transition_out(footer.$$.fragment, local);
+    			transition_out(if_block0);
+    			transition_out(if_block1);
     			current = false;
     		},
 
@@ -961,7 +1020,11 @@ var app = (function () {
     				detach(t1);
     			}
 
-    			destroy_component(footer, detaching);
+    			if (if_block1) if_block1.d(detaching);
+
+    			if (detaching) {
+    				detach(if_block1_anchor);
+    			}
     		}
     	};
     }
